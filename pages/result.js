@@ -1,17 +1,19 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Result from "../components/Result";
+import Results from "../components/Result";
+import ResultHero from "../components/ResultHero"
 
 export default function Result() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="justify-center min-h-screen">
       <Head>
         <title>Result</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Result/>
+      <ResultHero/>
+      <Results/>
       <Footer />
     </div>
   );

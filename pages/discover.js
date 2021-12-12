@@ -11,7 +11,7 @@ const [selectedDisease, selectDisease] = useState(0);
 
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div style={{padding: "20px 20px 60px"}} className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Discover</title>
         <link rel="icon" href="/favicon.ico" />
