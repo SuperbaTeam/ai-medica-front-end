@@ -6,9 +6,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function DiscoverDropDown() {
+export default function DiscoverDropDown({selectDisease}) {
   return (
-    <Menu as="div" className="relative inline-block text-left -mt-96">
+    <Menu as="div" className="relative inline-block text-left mt-24 mb-10">
       <div>
         <Menu.Button className="inline-flex justify-center w-96 h-auto rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm text-4xl text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
           Select Desiese
@@ -30,9 +30,10 @@ export default function DiscoverDropDown() {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-96 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-5">
-            <Menu.Item>
+            <Menu.Item >
               {({ active }) => (
                 <a
+                  onClick={()=>{selectDisease(1)}}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -43,9 +44,10 @@ export default function DiscoverDropDown() {
                 </a>
               )}
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item >
               {({ active }) => (
                 <a
+                  onClick={()=>{selectDisease(2)}}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
