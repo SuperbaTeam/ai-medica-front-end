@@ -4,8 +4,10 @@ import Footer from "../components/Footer";
 import DiscoverDropDown from "../components/DiscoverDropDown";
 import DiscoverForm from "../components/DiscoverForm";
 import { useState } from "react";
+import useResource from '../contexts/hooks/useResource'
 
 export default function Discover() {
+const { resources, loading, createResource, deleteResource } = useResource()
 const [selectedDisease, selectDisease] = useState(0);
 
 
@@ -18,7 +20,10 @@ const [selectedDisease, selectDisease] = useState(0);
       </Head>
       <Header />
       <DiscoverDropDown selectDisease={selectDisease}/>
-      <DiscoverForm selectedDisease={selectedDisease}/>
+      <DiscoverForm 
+      selectedDisease={selectedDisease}       
+      deleteResource={deleteResource}
+      createResource={createResource}/>
       <Footer />
     </div>
   );
