@@ -1,11 +1,16 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Results from "../components/Result";
-import ResultHero from "../components/ResultHero"
 
-export default function Result() {
+import ResultHero from "../components/ResultHero"
+import ResultComponent from "../components/ResultComponent";
+
+
+export default function result() {
+
+  
   return (
+
     <div className="justify-center min-h-screen">
       <Head>
         <title>Result</title>
@@ -13,7 +18,7 @@ export default function Result() {
       </Head>
       <Header />
       <ResultHero/>
-      <Results/>
+      <ResultComponent/>
       <Footer />
     </div>
   );

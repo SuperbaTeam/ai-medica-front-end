@@ -1,7 +1,7 @@
 import TestResult from './sub_components/TestResult'
 
 
-export default function Results() {
+export default function ResultComponent() {
     let fakeData = [
         {
             name: "fake name1",
