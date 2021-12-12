@@ -17,7 +17,7 @@ export default function TestResult(props) {
     let buttonClass = "bg-lime-300 p-4 mx-2 rounded-md text-xl w-32"
     return (
     <>
-    {modalState && <TestModal disable={hideModal}/>}
+    {modalState && <TestModal disable={hideModal} testNumber={props.testNumber} result={props.result}/>}
     <div class="flex flex-auto bg-slate-50 w-full m-12 p-2 h-20 rounded-md">
         <div class="float-left m-auto">
             <h1 class="font-bold text-xl">Test Number #{props.testNumber}</h1>
