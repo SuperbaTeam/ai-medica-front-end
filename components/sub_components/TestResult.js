@@ -1,19 +1,31 @@
-
-
+import TestModal from "./TestModal";
+import React, { useState } from 'react';
 
 
 export default function TestResult(props) {
-    let buttonClass = "bg-green-400 p-2 mx-2"
+
+    const [modalState, setModalState] = useState(false);
+
+    const showModal = () => {
+        setModalState(true)
+    }
+    const hideModal = () => {
+        setModalState(false)
+    }
+
+
+    let buttonClass = "bg-lime-300 p-4 mx-2 rounded-md text-xl w-32"
     return (
     <>
-    <div class="flex flex-1 bg-slate-50 w-full m-12 p-2">
+    {modalState && <TestModal disable={hideModal}/>}
+    <div class="flex flex-auto bg-slate-50 w-full m-12 p-2 h-20 rounded-md">
         <div class="float-left m-auto">
-            <h1>Test Number {props.testNumber}</h1>
+            <h1 class="font-bold text-xl">Test Number #{props.testNumber}</h1>
         </div>
 
         <div class="float-right inline-flex m-auto">
-            <button class={buttonClass}>View Result</button>
-            <button class={buttonClass}>Delete Result</button>   
+            <button class={buttonClass} onClick={showModal}>Result</button>
+            <button class={buttonClass}>Delete</button>   
         </div>
     </div>
     </>

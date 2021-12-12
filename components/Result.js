@@ -25,10 +25,10 @@ export default function Results() {
     ]
     return (
     <>
-        <div class="text-center content-center bg-neutral-300 w-4/6 p-20 m-auto my-20">
+        <div class="text-center content-center bg-neutral-300 w-4/6 p-20 m-auto my-20 rounded-md">
         {fakeData.map(result=>{
             return (
-                <TestResult result={result} testNumber={fakeData.indexOf(result)}/>
+                <TestResult result={result} testNumber={fakeData.indexOf(result)+1}/>
             )
         })}
         </div>
