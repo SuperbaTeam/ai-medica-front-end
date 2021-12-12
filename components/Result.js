@@ -5,7 +5,7 @@ export default function Results() {
     let fakeData = [
         {
             name: "fake name1",
-            age: "fake age1",
+            age: "fake age1_2",
             disease_name: "disease name 1",
             status: "fake status1",
         },
