@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
 import Link from 'next/link'
-import { useRouter } from "next/router";
+
 export default function Header() {
 
     let login = true
-    const router = useRouter();
-
-    const handleClick = (e, path) => {
-      if (path === "/pages/result") {
-        console.log("I clicked on the result Page");
-        router.push('../pages/result')
-      }
-      if (path === "/pages/discover") {
-        console.log("I clicked on the discover Page");
-        router.push('../pages/discover')
-      }
-    };
-
    
-
     return (
-
 
 
         <header style={{
@@ -32,21 +17,22 @@ export default function Header() {
 
             <button style={{ float: "left", marginRight: "200px", width: "100px", backgroundColor: "#edfc44" }}> Logo</button>
 
-
-            <button style={{ float: "left", marginRight: "10px", width: "80px", backgroundColor: "#edfc44", }}><i style={{ marginRight: "10px", }} class="fa fa-home"></i>Home</button>
-
-
+            <button style={{ float: "left", marginRight: "10px", width: "80px", backgroundColor: "#edfc44", }}>
+              <i style={{ marginRight: "10px", }} class="fa fa-home"></i><Link href='../' >Home</Link></button>
 
 
- <Link href='../' >
+       <button style={{ float: "left", marginRight: "200px", width: "100px", backgroundColor: "#edfc44" }}> 
+       <Link href='../aboutus' >About us </Link></button>
+
+
+
+
  {login && <button style={{ float: "left", marginRight: "10px", width: "70px", backgroundColor: "#edfc44" }}
 
- onClick={(e) => handleClick(e, "/pages/discover")}> Discover </button>}
+>  <Link href='../discover' >Discover</Link> </button>}
                     
-                    </Link>
-
+                  
           
-
 
             {login ? <button style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} > Logout</button> :
                 <> <button style={{ float: "right", marginRight: "100px", width: "70px", backgroundColor: "#edfc44" }}  >Signup</button>
@@ -55,20 +41,14 @@ export default function Header() {
 
 
 
+ <button style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} ><Link href='../helpothers' >Help Others</Link></button>
 
-            <button style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} >Help Others</button>
-
-
+  
+               
             
-
-                <Link href='../' >
                 {login &&    <button style={{
-                float: "right", marginRight: "50px", width: "80px", backgroundColor: "#edfc44",
-
-            }} onClick={(e) => handleClick(e, "/pages/result")} > Result </button>}
-                    
-                    </Link>
-
+                float: "right", marginRight: "50px", width: "80px", backgroundColor: "#edfc44"}} >  <Link href='../result' >Result</Link>  </button>}
+ 
            
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -78,6 +58,3 @@ export default function Header() {
 
     );
 }
-
-
-

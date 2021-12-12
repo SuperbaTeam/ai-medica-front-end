@@ -1,7 +1,7 @@
 
 
 
-export default function Result() {
+export default function ResultComponent() {
     return (
     <>
     
