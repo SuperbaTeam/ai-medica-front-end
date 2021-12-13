@@ -13,3 +13,18 @@ const customJestConfig = {
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 module.exports = createJestConfig(customJestConfig)
+
+// Sync object
+/** @type {import('@jest/types').Config.InitialOptions} */
+const config = {
+  verbose: true,
+};
+
+module.exports = config;
+
+// Or async function
+module.exports = async () => {
+  return {
+    verbose: true,
+  };
+};
