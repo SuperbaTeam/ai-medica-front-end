@@ -1,7 +1,7 @@
 
 
 
-export default function HomeGridThree() {
+export default function HomeGridTwo() {
     return (
     <>
     
