@@ -13,17 +13,19 @@ const [selectedDisease, selectDisease] = useState(0);
 
 
   return (
-    <div style={{padding: "20px 20px 60px"}} className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col min-h-screen justify-around">
       <Head>
         <title>Discover</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <DiscoverDropDown selectDisease={selectDisease}/>
-      <DiscoverForm 
-      selectedDisease={selectedDisease}       
-      deleteResource={deleteResource}
-      createResource={createResource}/>
+      <div className="py-20">
+        <DiscoverDropDown selectDisease={selectDisease}/>
+        <DiscoverForm 
+        selectedDisease={selectedDisease}       
+        deleteResource={deleteResource}
+        createResource={createResource}/>
+      </div>
       <Footer />
     </div>
   );

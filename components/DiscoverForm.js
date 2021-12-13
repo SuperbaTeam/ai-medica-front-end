@@ -69,7 +69,7 @@ export default function DiscoverForm({
 
 function Stroke({ handleStrokeDetection }) {
   return (
-    <div className="w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+    <div className="m-auto w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
       <form action="/discover" onSubmit={handleStrokeDetection}>
         <div className="overflow-hidden shadow sm:rounded-md">
           <div className="px-4 py-5 sm:p-6 ">
@@ -636,7 +636,7 @@ function Stroke({ handleStrokeDetection }) {
 
 function HepatitisForm({ handleHepatitisSubmission }) {
   return (
-    <div className="w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+    <div className="m-auto w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
       <form action="/discover" onSubmit={handleHepatitisSubmission}>
         <div className="overflow-hidden shadow sm:rounded-md">
           <div className="px-4 py-5 sm:p-6 ">
