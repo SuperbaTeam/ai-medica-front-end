@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Link from 'next/link'
-
+import {useAuth} from '../contexts/auth'
 export default function Header() {
-
-    let login = true
+    const { user, login,logout } = useAuth()
+    
    
     return (
 
@@ -34,9 +34,9 @@ export default function Header() {
                   
           
 
-            {login ? <button style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} > Logout</button> :
+            {user ? <button onClick={()=>{logout()}} style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} > Logout</button> :
                 <> <button style={{ float: "right", marginRight: "100px", width: "70px", backgroundColor: "#edfc44" }}  >Signup</button>
-                    <button style={{ float: "right", marginRight: "50px", width: "70px", backgroundColor: "#edfc44" }}>Login</button>  </>}
+                    <button onClick={()=>{login('test','test')}} style={{ float: "right", marginRight: "50px", width: "70px", backgroundColor: "#edfc44" }}>Login</button>  </>}
 
 
 
