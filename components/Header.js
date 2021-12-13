@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <>
-      {showLogin && <LoginModal hide={hideLoginModal} login={login}/>}
+      {showLogin && <LoginModal hide={hideLoginModal} login={login} />}
       {showSignUp && <SignUpModal hide={hideSignUpModal} />}
       <header class="z-40">
         <nav class="bg-gray-100 fixed inset-x-0">
@@ -89,7 +89,12 @@ export default function Header() {
               </div>
               <div class="hidden md:flex items-center space-x-1">
                 {user ? (
-                  <h1>logout</h1>
+                  <button
+                    onClick={logout}
+                    class="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                  >
+                    Logout
+                  </button>
                 ) : (
                   <>
                     <button onClick={showLoginModal}>Login</button>

@@ -4,13 +4,16 @@ export default function LoginModal(props) {
         event.preventDefault();
         const username = event.target.username.value;
         const pass = event.target.password.value;
-        console.log(username,pass)
         try{
             props.login(username,pass)
         }
         catch{
-            console.log("Login Failed!")
+
         }
+        finally{
+            props.hide()
+        }
+
     }
 
   return (
