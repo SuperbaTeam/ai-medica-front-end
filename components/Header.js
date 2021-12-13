@@ -1,60 +1,138 @@
-import React, { Component } from 'react';
-import Link from 'next/link'
-import {useAuth} from '../contexts/auth'
+import React, { Component, useState } from "react";
+import Link from "next/link";
+import { useAuth } from "../contexts/auth";
+import LoginModal from "./sub_components/LoginModal";
+import SignUpModal from "./sub_components/SignupModal";
+
 export default function Header() {
-    const { user, login,logout } = useAuth()
-    
-   
-    return (
+  const { user, login, logout } = useAuth();
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
+  const showLoginModal = () => {
+    setShowLogin(true);
+  };
+  const hideLoginModal = () => {
+    setShowLogin(false);
+  };
+  const showSignUpModal = () => {
+    setShowSignUp(true);
+  };
+  const hideSignUpModal = () => {
+    setShowSignUp(false);
+  };
 
-        <header style={{
-            padding: '2px 1px', overflow: 'hidden', borderRadius: '4px', lineHeight: '25px', padding: '12px'
-            , float: 'left', top: '0', position: 'absolute',
-            width: '1550px', backgroundColor: "#46b69b"
-        }}>
-
-
-            <button style={{ float: "left", marginRight: "200px", width: "100px", backgroundColor: "#edfc44" }}> Logo</button>
-
-            <button style={{ float: "left", marginRight: "10px", width: "80px", backgroundColor: "#edfc44", }}>
-              <i style={{ marginRight: "10px", }} class="fa fa-home"></i><Link href='../' >Home</Link></button>
-
-
-       <button style={{ float: "left", marginRight: "200px", width: "100px", backgroundColor: "#edfc44" }}> 
-       <Link href='../aboutus' >About us </Link></button>
-
-
-
-
- {login && <button style={{ float: "left", marginRight: "10px", width: "70px", backgroundColor: "#edfc44" }}
-
->  <Link href='../discover' >Discover</Link> </button>}
-                    
-                  
-          
-
-            {user ? <button onClick={()=>{logout()}} style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} > Logout</button> :
-                <> <button style={{ float: "right", marginRight: "100px", width: "70px", backgroundColor: "#edfc44" }}  >Signup</button>
-                    <button onClick={()=>{login('test','test')}} style={{ float: "right", marginRight: "50px", width: "70px", backgroundColor: "#edfc44" }}>Login</button>  </>}
-
-
-
-
- <button style={{ float: "left", marginRight: "10px", width: "100px", backgroundColor: "#edfc44" }} ><Link href='../helpothers' >Help Others</Link></button>
-
-  
-               
-            
-                {login &&    <button style={{
-                float: "right", marginRight: "50px", width: "80px", backgroundColor: "#edfc44"}} >  <Link href='../result' >Result</Link>  </button>}
- 
-           
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-        </header>
-
-
-    );
+  return (
+    <>
+      {showLogin && <LoginModal hide={hideLoginModal} login={login} />}
+      {showSignUp && <SignUpModal hide={hideSignUpModal} />}
+      <header class="z-40">
+        <nav class="bg-gray-100 fixed inset-x-0">
+          <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+              <div class="flex space-x-4">
+                <div>
+                  {" "}
+                  <a
+                    href="#"
+                    class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    {" "}
+                    <i class="bx bxl-medium-old mr-1 text-xl mb-1 text-blue-400"></i>{" "}
+                    <span class="font-bold text-grey-300">AI Medica</span>{" "}
+                  </a>{" "}
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                  {" "}
+                  <Link href="/">
+                    <a class="py-5 px-3 text-gray-700 hover:text-gray-900">
+                      Home
+                    </a>
+                  </Link>
+                  {user && (
+                    <>
+                      <Link href="/discover">
+                        <a
+                          href="#"
+                          class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                        >
+                          Discover
+                        </a>
+                      </Link>
+                      <Link href="/result">
+                        <a
+                          href="#"
+                          class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                        >
+                          Results
+                        </a>
+                      </Link>
+                      <Link href="/helpothers">
+                        <a
+                          href="#"
+                          class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                        >
+                          Help Others
+                        </a>
+                      </Link>
+                    </>
+                  )}
+                  <Link href="/aboutus">
+                    <a
+                      href="#"
+                      class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                    >
+                      About Us
+                    </a>
+                  </Link>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center space-x-1">
+                {user ? (
+                  <button
+                    onClick={logout}
+                    class="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <button onClick={showLoginModal}>Login</button>
+                    <button
+                      onClick={showSignUpModal}
+                      class="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                    >
+                      Signup
+                    </button>
+                  </>
+                )}
+              </div>
+              <div class="md:hidden flex items-center">
+                {" "}
+                <button class="mobile-menu-button focus:outline-none">
+                  {" "}
+                  <i class="bx bx-menu text-3xl mt-1"></i>{" "}
+                </button>{" "}
+              </div>
+            </div>
+          </div>
+          <div class="mobile-menu hidden md:hidden">
+            {" "}
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">
+              Home
+            </a>{" "}
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">
+              Contact
+            </a>{" "}
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">
+              Pricing
+            </a>{" "}
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">
+              Features
+            </a>{" "}
+          </div>
+        </nav>
+      </header>
+    </>
+  );
 }
