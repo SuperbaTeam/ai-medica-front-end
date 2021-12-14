@@ -5,19 +5,7 @@ export default function AboutTeam() {
     return (
   
  
-<div><p class="text-center font-serif text-3xl font-thin">Our Team</p>
-
-{/* <div class="columns-4 bg-center">
-    <><img  class="shadow-xl rounded-full ..."src="../static/Fasial.jpg" alt="shahd" width="200px" height="200px" />
-    <p class="text-center font-semibold " </p></>
-    <><img  class="shadow-xl rounded-full ..."src="../static/Jehad.jpg" alt="shahd" width="200px" height="200px" />
-    <p class="text-center font-semibold ">Jehad Abu Awwad </p></>
-    <><img  class="shadow-xl rounded-full ..."src="../static/Musab.jpg" alt="shahd" width="200px" height="200px" />
-    <p class="text-center font-semibold ">Musa'b Shalaldeh </p></>
-    <><img  class="shadow-xl rounded-full ..."src="../static/shahed.jpg" alt="shahd" width="200px" height="200px" />
-    <p class="text-center font-semibold ">Shahed Alkhateeb </p></>
-
-</div> */}
+<div>
 
 
 <div class="bg-white">
