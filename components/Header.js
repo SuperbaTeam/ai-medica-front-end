@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <>
       {showLogin && <LoginModal hide={hideLoginModal} login={login} />}
-      {showSignUp && <SignUpModal hide={hideSignUpModal} />}
+      {showSignUp && <SignUpModal hide={hideSignUpModal} signup={()=>{console.log("SIGNED UP USER")/*pass the actual signup function here*/}} />}
       <header className="z-40">
         <nav className="bg-gray-100 fixed inset-x-0">
           <div className="max-w-6xl mx-auto px-4">
