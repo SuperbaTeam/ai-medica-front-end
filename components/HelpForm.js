@@ -1,14 +1,18 @@
 import { useState } from "react";
 import React from "react";
 import useResource from "../contexts/hooks/useResource";
+const cancer_url = process.env.NEXT_PUBLIC_RESOURCE_URL_3;
 
 export default function HelpForm() {
   const { createResource, resources } = useResource();
   // const [Data, setData] = React.useState();
-  function dataHandler(event) {
+  const dataHandler = async (event) => {
     event.preventDefault();
 
     const cancer = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      age: event.target.age.value,
       texture_mean: event.target.texture_mean.value,
       area_mean: event.target.area_mean.value,
       smoothness_mean: event.target.smoothness_mean.value,
@@ -17,9 +21,21 @@ export default function HelpForm() {
       concave_points_mean: event.target.concave_points_mean.value,
       state: event.target.state.value,
     };
-    createResource(cancer);
-    event.target.reset();
-  }
+    // const cancer = {
+    //   name: "jehad",
+    //   email: "test@test.com",
+    //   age: "24",
+    //   texture_mean: "1.0",
+    //   area_mean: "1.0",
+    //   smoothness_mean: "1.0",
+    //   compactness_mean: "1.0",
+    //   concavity_mean: "1.0",
+    //   concave_points_mean: "1.0",
+    //   state: "1.0",
+    // };
+    await createResource(cancer, cancer_url);
+    // event.target.reset();
+  };
   return (
     <>
       <div className="w-6/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
@@ -27,6 +43,51 @@ export default function HelpForm() {
           <div className="overflow-hidden shadow sm:rounded-md">
             <div className="px-4 py-5 sm:p-6 ">
               <div className="grid grid-cols-1 gap-6 ">
+                <div className="col-span-6 sm:col-span-5">
+                  <label
+                    for="name"
+                    className="block text-xl font-medium text-gray-700"
+                  >
+                    What is your name?
+                  </label>
+                  <input
+                    style={{ height: 50 }}
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="block w-full p-4 mt-1 text-xl border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm: y"
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-5">
+                  <label
+                    for="email"
+                    className="block text-xl font-medium text-gray-700"
+                  >
+                    What is your E-mail?
+                  </label>
+                  <input
+                    style={{ height: 50 }}
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="block w-full p-4 mt-1 text-xl border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm: y"
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-5">
+                  <label
+                    for="age"
+                    className="block text-xl font-medium text-gray-700"
+                  >
+                    What is your age?
+                  </label>
+                  <input
+                    style={{ height: 50 }}
+                    type="number"
+                    name="age"
+                    id="age"
+                    className="block w-full p-4 mt-1 text-xl border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm: y"
+                  />
+                </div>
                 <div className="col-span-6 sm:col-span-5">
                   <label
                     for="texture_mean"
