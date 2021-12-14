@@ -4,7 +4,6 @@
 export default function AboutTeam() {
     return (
   
- 
 <div>
 
 
@@ -96,6 +95,7 @@ export default function AboutTeam() {
  
  
   </div>
+
 </div>
 
 
