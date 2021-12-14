@@ -8,7 +8,7 @@ function classNames(...classes) {
 
 export default function DiscoverDropDown({ selectDisease }) {
   return (
-    <div class="m-auto text-center">
+    <div className="m-auto text-center">
       <Menu as="div" className="relative inline-block text-left mt-24 mb-10">
         <div>
           <Menu.Button className="inline-flex justify-center w-96 h-auto rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm text-4xl text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">

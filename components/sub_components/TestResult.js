@@ -18,14 +18,14 @@ export default function TestResult(props) {
     return (
     <>
     {modalState && <TestModal disable={hideModal} testNumber={props.testNumber} result={props.result}/>}
-    <div class="flex flex-auto bg-slate-50 w-full m-12 p-2 h-20 rounded-md">
-        <div class="float-left m-auto">
-            <h1 class="font-bold text-xl">Test Number #{props.testNumber}</h1>
+    <div className="flex flex-auto bg-slate-50 w-full m-12 p-2 h-20 rounded-md">
+        <div className="float-left m-auto">
+            <h1 className="font-bold text-xl">Test Number #{props.testNumber}</h1>
         </div>
 
-        <div class="float-right inline-flex m-auto">
-            <button class={buttonClass} onClick={showModal}>Result</button>
-            <button class={buttonClass}>Delete</button>   
+        <div className="float-right inline-flex m-auto">
+            <button className={buttonClass} onClick={showModal}>Result</button>
+            <button className={buttonClass}>Delete</button>   
         </div>
     </div>
     </>

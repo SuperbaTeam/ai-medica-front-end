@@ -9,7 +9,7 @@ export default function DiscoverForm({
       name: event.target.name.value,
       email: event.target.email.value,
       mobile: event.target.mobile.value,
-      age: event.target.age.value,
+      age: parseInt(event.target.age.value),
       bmi: event.target.bmi.value,
       avg_glucose_level: event.target.avg_glucose_level.value,
       residence_type: event.target.residence_type.value,
@@ -28,30 +28,30 @@ export default function DiscoverForm({
   const handleHepatitisSubmission = (event) => {
     event.preventDefault();
     const info = {
-        name: event.target.name.value,
-        email: event.target.email.value,
-        mobile: event.target.mobile.value,
-        age: event.target.age.value,
-        gender: event.target.gender.value,
-        steroid: event.target.steroid.value,
-        antivirals: event.target.antivirals.value,
-        fatigue: event.target.fatigue.value,
-        malaise: event.target.malaise.value,
-        anorexia: event.target.anorexia.value,
-        liver_big: event.target.liver_big.value,
-        liver_firm: event.target.liver_firm.value,
-        spleen_palpable: event.target.spleen_palpable.value,
-        spiders: event.target.spiders.value,
-        ascites: event.target.ascites.value,
-        varices: event.target.varices.value,
-        bilirubin: event.target.bilirubin.value,
-        alk_phosphate: event.target.alk_phosphate.value,
-        sgot: event.target.sgot.value,
-        albumin: event.target.albumin.value,
-        protime: event.target.protime.value,
-        histology: event.target.histology.value,
-
+      name: event.target.name.value,
+      email: event.target.email.value,
+      mobile: event.target.mobile.value,
+      age: parseInt(event.target.age.value),
+      gender: event.target.gender.value,
+      steroid: event.target.steroid.value,
+      antivirals: event.target.antivirals.value,
+      fatigue: event.target.fatigue.value,
+      malaise: event.target.malaise.value,
+      anorexia: event.target.anorexia.value,
+      liver_big: event.target.liver_big.value,
+      liver_firm: event.target.liver_firm.value,
+      spleen_palpable: event.target.spleen_palpable.value,
+      spiders: event.target.spiders.value,
+      ascites: event.target.ascites.value,
+      varices: event.target.varices.value,
+      bilirubin: parseFloat(event.target.bilirubin.value),
+      alk_phosphate: parseFloat(event.target.alk_phosphate.value),
+      sgot: parseFloat(event.target.sgot.value),
+      albumin: parseFloat(event.target.albumin.value),
+      protime: parseFloat(event.target.protime.value),
+      histology: event.target.histology.value,
     }
+    
     console.log(info);
     createResource(info);
   };
@@ -138,7 +138,7 @@ function Stroke({ handleStrokeDetection }) {
                   </label>
                   <input
                     style={{ height: 50 }}
-                    type="text"
+                    type="number"
                     name="age"
                     id="age"
                     className="block w-full p-4 mt-1 text-sm border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm:"
@@ -530,7 +530,7 @@ function Stroke({ handleStrokeDetection }) {
                         id="hypertension"
                         name="hypertension"
                         value={1}
-                        class="
+                        className="
                             focus: ring-indigo-500
                             h-4
                             w-4
@@ -552,7 +552,7 @@ function Stroke({ handleStrokeDetection }) {
                         id="hypertension"
                         name="hypertension"
                         value={0}
-                        class="
+                        className="
                             focus: ring-indigo-500
                             h-4
                             w-4
@@ -852,7 +852,7 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
               {/* fatigue */}
 
               <div className="col-span-6 sm:col-span-5">
@@ -900,7 +900,7 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* malaise */}
               <div className="col-span-6 sm:col-span-5">
@@ -948,13 +948,13 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
               {/* anorexia */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Are your weight and height being lower than expected for your age?
+                      Are your weight and height being lower than expected for your age?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -995,14 +995,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* liver_big */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Is your liver bigger than what it is supposed to be?
+                      Is your liver bigger than what it is supposed to be?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1043,14 +1043,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
-              
+              </div>
+
               {/* liver_firm */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Is your liver firm?
+                      Is your liver firm?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1091,14 +1091,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* spleen_palpable */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Can you feel enlarged spleen?
+                      Can you feel enlarged spleen?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1139,14 +1139,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* spiders */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Have you ever been bitten by a spider?
+                      Have you ever been bitten by a spider?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1187,14 +1187,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* ascites */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Do you have ascites?
+                      Do you have ascites?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1235,14 +1235,14 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                     </div>
                   </div>
                 </fieldset>
-              </div> 
+              </div>
 
               {/* varices */}
               <div className="col-span-6 sm:col-span-5">
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Do you have varices?
+                      Do you have varices?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
@@ -1302,7 +1302,7 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                   className="block w-full p-4 mt-1 text-sm border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm:"
                 />
               </div>
-              
+
 
               <div className="col-span-6 sm:col-span-5">
                 <label
@@ -1380,7 +1380,7 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                 <fieldset>
                   <div>
                     <legend className="text-base font-medium text-gray-900">
-                    Did you make a microanatomy study or histology ?
+                      Did you make a microanatomy study or histology ?
                     </legend>
                     <p className="text-sm text-gray-500">
                       Answer by the following choices:
