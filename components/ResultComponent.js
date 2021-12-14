@@ -21,17 +21,26 @@ export default function ResultComponent() {
             disease_name: "disease name 3",
             status: "fake status3",
         },
+        {
+            name: "fake name4",
+            age: "fake age4",
+            disease_name: "disease name 4",
+            status: "fake status4",
+        },
 
     ]
     return (
-    <>
-        <div className="text-center content-center bg-neutral-300 w-4/6 p-20 m-auto my-20 rounded-md">
+    <div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20">
+      {fakeData.length > 0 ?<>
+        <h1 class="text-3xl text-center font-bold text-black-500">Your Test Results:</h1>
+        <div class="border-l-2 mt-10">
         {fakeData.map(result=>{
-            return (
-                <TestResult result={result} testNumber={fakeData.indexOf(result)+1}/>
-            )
-        })}
+                return (
+                    <TestResult result={result} testNumber={fakeData.indexOf(result)+1}/>
+                )
+            })}
         </div>
-    </>
+      </> : <h1 class="text-3xl text-center font-bold text-black-500">No Test Results To Be Viewed Yet.</h1>}
+    </div>
     );
 }
