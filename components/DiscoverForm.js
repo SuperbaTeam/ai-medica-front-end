@@ -1,16 +1,18 @@
+const stroke_url = process.env.NEXT_PUBLIC_RESOURCE_URL_1;
+const hepatitis_url = process.env.NEXT_PUBLIC_RESOURCE_URL_2;
 export default function DiscoverForm({
   selectedDisease,
   deleteResource,
   createResource,
 }) {
-  const handleStrokeDetection = (event) => {
+  const handleStrokeDetection = async (event) => {
     event.preventDefault();
     const standInfo = {
       name: event.target.name.value,
       email: event.target.email.value,
-      mobile: event.target.mobile.value,
+      mobile: parseInt(event.target.mobile.value),
       age: parseInt(event.target.age.value),
-      bmi: event.target.bmi.value,
+      bmi: parseFloat(event.target.bmi.value),
       avg_glucose_level: event.target.avg_glucose_level.value,
       residence_type: event.target.residence_type.value,
       gender: event.target.gender.value,
@@ -19,13 +21,12 @@ export default function DiscoverForm({
       smoking_status: event.target.smoking_status.value,
       hypertension: event.target.hypertension.value,
       heart_disease: event.target.heart_disease.value,
-    };
-    console.log(standInfo);
-    createResource(standInfo);
-    // event.target.reset();
+    }
+    await createResource(standInfo, stroke_url);
+    event.target.reset();
   };
 
-  const handleHepatitisSubmission = (event) => {
+  const handleHepatitisSubmission = async (event) => {
     event.preventDefault();
     const info = {
       name: event.target.name.value,
@@ -51,13 +52,12 @@ export default function DiscoverForm({
       protime: parseFloat(event.target.protime.value),
       histology: event.target.histology.value,
     }
-    
-    console.log(info);
-    createResource(info);
+    await createResource(info, hepatitis_url);
+    event.target.reset();
   };
 
   if (selectedDisease == 0) {
-    return <h1>Please select a disease to run a test on.</h1>;
+    return <h1 className="m-auto text-center">Please select a disease to run a test on.</h1>;
   } else if (selectedDisease == 1) {
     return <Stroke handleStrokeDetection={handleStrokeDetection} />;
   } else {
@@ -69,8 +69,8 @@ export default function DiscoverForm({
 
 function Stroke({ handleStrokeDetection }) {
   return (
-    <div className="m-auto w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
-      <form action="/discover" onSubmit={handleStrokeDetection}>
+    <div className="w-4/12 m-auto mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+      <form action="/discover" onSubmit={handleStrokeDetection} method="POST">
         <div className="overflow-hidden shadow sm:rounded-md">
           <div className="px-4 py-5 sm:p-6 ">
             <div className="grid grid-cols-1 gap-6 ">
@@ -530,13 +530,7 @@ function Stroke({ handleStrokeDetection }) {
                         id="hypertension"
                         name="hypertension"
                         value={1}
-                        className="
-                            focus: ring-indigo-500
-                            h-4
-                            w-4
-                            text-indigo-600
-                            border-gray-300
-            "
+                        className="w-4 h-4 text-indigo-600 border-gray-300 focus: ring-indigo-500"
                       />
                       <label
                         for="hypertension"
@@ -552,13 +546,7 @@ function Stroke({ handleStrokeDetection }) {
                         id="hypertension"
                         name="hypertension"
                         value={0}
-                        className="
-                            focus: ring-indigo-500
-                            h-4
-                            w-4
-                            text-indigo-600
-                            border-gray-300
-            "
+                        className="w-4 h-4 text-indigo-600 border-gray-300 focus: ring-indigo-500"
                       />
                       <label
                         for="hypertension-False"
@@ -636,8 +624,8 @@ function Stroke({ handleStrokeDetection }) {
 
 function HepatitisForm({ handleHepatitisSubmission }) {
   return (
-    <div className="m-auto w-4/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
-      <form action="/discover" onSubmit={handleHepatitisSubmission}>
+    <div className="w-4/12 m-auto mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+      <form action="/discover" onSubmit={handleHepatitisSubmission} method="POST">
         <div className="overflow-hidden shadow sm:rounded-md">
           <div className="px-4 py-5 sm:p-6 ">
             <div className="grid grid-cols-1 gap-6 ">
