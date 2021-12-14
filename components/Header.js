@@ -50,7 +50,7 @@ export default function Header() {
                   >
                     {" "}
                     <i className="bx bxl-medium-old mr-1 text-xl mb-1 text-blue-400"></i>{" "}
-                    <span className="font-bold text-grey-300">AI Medica</span>{" "}
+                    <Link href="/"><a href="#" className="font-bold text-grey-300">AI Medica</a></Link>
                   </a>{" "}
                 </div>
                 <div className="hidden md:flex items-center space-x-1">
