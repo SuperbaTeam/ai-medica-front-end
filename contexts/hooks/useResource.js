@@ -1,23 +1,26 @@
 import axios from 'axios';
 import useSWR from 'swr';
 import { useAuth } from '../auth';
-const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
+const stroke_url = process.env.NEXT_PUBLIC_API_URL_1;
+const hepatitis_url = process.env.NEXT_PUBLIC_API_URL_2;
 
 export default function useResource() {
 
     const { tokens, logout } = useAuth()
-
-    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+    if (typeof window !== "undefined") {
+        tokens = JSON.parse(localStorage.getItem("Tokens"))
+    }
+    const { stroke_data, error1} = useSWR([stroke_url, tokens], fetchResource);
+    const { hepatitis_data, error2 } = useSWR([hepatitis_url, tokens], fetchResource);
 
     async function fetchResource(url) {
 
         if (!tokens) {
             return;
         }
-
+        
         try {
-            const response = await axios.get(url, config());
-
+            const response = await axios.get(customURL, config());
             return response.data;
 
         } catch (error) {
@@ -25,34 +28,31 @@ export default function useResource() {
         }
     }
 
-    async function createResource(info) {
-
+    async function createResource(info, customURL) {
         try {
-            await axios.post(apiUrl, info, config());
-            mutate(); // mutate causes complete collection to be refetched
+            await axios.post(customURL, info, config());
+            
         } catch (error) {
             handleError(error);
         }
     }
 
-    async function deleteResource(id) {
+    // async function deleteResource(id) {
 
-        try {
-            const url = apiUrl + id;
-            await axios.delete(url, config());
-            mutate(); // mutate causes complete collection to be refetched
-        } catch (error) {
-            handleError(error);
-        }
-    }
+    //     try {
+    //         const url = apiUrl + id;
+    //         await axios.delete(url, config());
+    //         
+    //     } catch (error) {
+    //         handleError(error);
+    //     }
+    // }
 
-    async function updateResource() {
-        // STRETCH
-        // Add ability for user to update an existing resource
-    }
+    // async function updateResource() {
+    //     // STRETCH
+    //     // Add ability for user to update an existing resource
+    // }
 
-
-    // helper function to handle getting Authorization headers EXACTLY right
     function config() {
 
         return {
@@ -64,23 +64,18 @@ export default function useResource() {
 
     function handleError(error) {
         console.error(error);
-        // currently just log out on error
-        // but a common error will be short lived token expiring
-        // STRETCH: refresh the access token when it has expired
-
     }
 
     return {
-        resources: data,
-        error,
-        loading: tokens && !error && !data,
+        stroke_resources: stroke_data,
+        hepatitis_resources: hepatitis_data,
+        error1,
+        error2,
+        loading: tokens && !error1 || !error2 && !stroke_data || !hepatitis_data,
         createResource,
-        deleteResource,
-        updateResource,
+        // deleteResource,
+        // updateResource,
     }
 }
 
-/* STRETCH
-This approach works, but it's not very snappy for the user.
-Check the SWR docs to see if you can "optomistically" render updated state while the API response is pending.
-*/
+
