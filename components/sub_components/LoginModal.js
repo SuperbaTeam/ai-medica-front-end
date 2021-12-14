@@ -6,6 +6,7 @@ export default function LoginModal(props) {
         const pass = event.target.password.value;
         try{
              props.login(username,pass)
+
         }
         catch{
 

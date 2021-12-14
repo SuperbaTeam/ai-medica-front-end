@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "../contexts/auth";
 import LoginModal from "./sub_components/LoginModal";
@@ -6,12 +6,13 @@ import SignUpModal from "./sub_components/SignupModal";
 
 
 export default function Header() {
-  const { login, logout } = useAuth();
+  let { user, login, logout } = useAuth();
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  
-  const user=JSON.parse(localStorage.getItem("Auth"))
 
+  if (typeof window !== "undefined") {
+    user = JSON.parse(localStorage.getItem("Auth"))
+  }
   const showLoginModal = () => {
     setShowLogin(true);
   };
@@ -27,7 +28,7 @@ export default function Header() {
 
   return (
     <>
-      {showLogin && <LoginModal  hide={hideLoginModal} login={login} />}
+      {showLogin && <LoginModal hide={hideLoginModal} login={login} />}
       {showSignUp && <SignUpModal hide={hideSignUpModal} />}
       <header className="z-40">
         <nav className="bg-gray-100 fixed inset-x-0">

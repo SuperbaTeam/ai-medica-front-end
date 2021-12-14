@@ -29,7 +29,6 @@ const features = [
 ]
 
 export default function HomeGridThree() {
-    const { user, login,logout } = useAuth()
     return (
         <>
             <div className="py-12 bg-white mt-32">

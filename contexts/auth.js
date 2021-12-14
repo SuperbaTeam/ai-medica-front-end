@@ -23,9 +23,9 @@ export function AuthProvider(props) {
     login,
     logout,
   });
- 
-  
-  
+
+
+
   async function login(username, password) {
     const response = await axios.post(tokenUrl, { username, password });
     const decodedAccess = jwt.decode(response.data.access);
@@ -38,8 +38,9 @@ export function AuthProvider(props) {
     };
 
     setState((prevState) => ({ ...prevState, ...newState }));
-    localStorage.setItem("Auth",JSON.stringify(newState.user))
-     
+    localStorage.setItem("Auth", JSON.stringify(newState.user))
+
+
   }
 
   function logout() {
@@ -48,6 +49,7 @@ export function AuthProvider(props) {
       user: null,
     };
     setState((prevState) => ({ ...prevState, ...newState }));
+    localStorage.clear()
   }
 
   return (
