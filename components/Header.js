@@ -101,8 +101,8 @@ export default function Header() {
               <div className="hidden md:flex items-center space-x-1">
                 {user ? (
                   <button
-                    onClick={logout}
                     className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                    onClick={logout}
                   >
                     Logout
                   </button>
@@ -110,8 +110,8 @@ export default function Header() {
                   <>
                     <button onClick={showLoginModal}>Login</button>
                     <button
-                      onClick={showSignUpModal}
                       className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                      onClick={showSignUpModal}
                     >
                       Signup
                     </button>
