@@ -39,6 +39,9 @@ export default function HelpForm() {
   return (
     <>
       <div className="w-6/12 mt-32 bg-white border-b border-gray-200 md:grid md:grid-cols-1 md:gap-6 bg-clip-padding rounded-3xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+        <h1 className="text-center text-pink-600 font-bold text-5xl pt-5">
+          Help Us
+        </h1>
         <form action="/help_others" onSubmit={dataHandler}>
           <div className="overflow-hidden shadow sm:rounded-md">
             <div className="px-4 py-5 sm:p-6 ">
@@ -185,7 +188,7 @@ export default function HelpForm() {
                     for="state"
                     className="block text-xl font-medium text-gray-700"
                   >
-                    What is the state value?
+                    What is your current state?
                   </label>
                   <input
                     style={{ height: 50 }}
