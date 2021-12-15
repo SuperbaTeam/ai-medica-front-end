@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export function useAuth() {
   const auth = useContext(AuthContext);
 
-  if (!auth) throw new Error("You forgot AuthProvider!");
+  // if (!auth) throw new Error("You forgot AuthProvider!");
   return auth;
 }
 
