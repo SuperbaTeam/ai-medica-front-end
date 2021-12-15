@@ -4,7 +4,9 @@
 export default function ResultHero() {
     return (
     <>
-        <img className="w-full" src="https://via.placeholder.com/1280x450" />
+        <div style={{height: "970px"}}>
+            <img className="w-full h-full object-cover" src="../static/results_hero.jpg" />
+        </div>
     </>
     );
 }
