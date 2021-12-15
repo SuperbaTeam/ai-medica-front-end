@@ -26,10 +26,10 @@ export default function TestResult(props) {
 
           <div class="flex-auto">
             <h1 class="text-xl font-bold text-black">Test Number #{props.testNumber}</h1>
-            <h1 class="text-lg text-black">View your results for test number #{props.testNumber} or delete it.</h1>
+            <h1 class="text-lg text-black">View your results for test number #{props.testNumber}</h1>
           </div>
           <button className="text-center bg-lime-300 p-2 px-4 m-4 text-black rounded-md hover:bg-lime-400" onClick={showModal}>Result</button>
-          <button className="text-center text-white bg-red-500 py-2 px-4 m-4 text-black rounded-md hover:bg-red-400">Delete</button>
+          {/* <button className="text-center text-white bg-red-500 py-2 px-4 m-4 text-black rounded-md hover:bg-red-400">Delete</button> */}
         </div>
     </div>
     </>

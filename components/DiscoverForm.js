@@ -1,5 +1,9 @@
 const stroke_url = process.env.NEXT_PUBLIC_RESOURCE_URL_1;
 const hepatitis_url = process.env.NEXT_PUBLIC_RESOURCE_URL_2;
+const userEmail = "";
+if (typeof window !== "undefined") {
+  userEmail = JSON.parse(localStorage.getItem("Auth")).email;
+}
 export default function DiscoverForm({
   selectedDisease,
   deleteResource,
@@ -102,6 +106,8 @@ function Stroke({ handleStrokeDetection }) {
                   type="text"
                   name="email"
                   id="email"
+                  value={userEmail}
+                  readonly
                   className="block w-full p-4 mt-1 text-sm border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm:"
                 />
               </div>
@@ -657,6 +663,8 @@ function HepatitisForm({ handleHepatitisSubmission }) {
                   type="text"
                   name="email"
                   id="email"
+                  value={userEmail}
+                  readonly
                   className="block w-full p-4 mt-1 text-sm border-gray-300 border-indigo-500 rounded-md shadow-sm focus: ring-indigo-500 sm:"
                 />
               </div>
