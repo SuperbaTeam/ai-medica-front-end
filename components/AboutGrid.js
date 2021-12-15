@@ -14,7 +14,7 @@ export default function AboutGrid() {
             <span className="block text-center font-light italic">
               Our Mission
             </span>
-            <span className="pt-5 block text-indigo-500 font-light max-w-full text-center font-serif">
+            <span className="pt-5 block text-indigo-500 font-light max-w-full text-center font-sans">
               Our main purpose is to provide a diseases discovery App using a
               machine learning algorithms in order to predict patient medical
               state for a specific disease based on his/her medical record.
@@ -28,7 +28,7 @@ export default function AboutGrid() {
             <span className="block text-center font-light italic">
               Our Vision
             </span>
-            <span className="pt-5 block text-indigo-500 font-light font-serif text-center max-w-full">
+            <span className="pt-5 block text-indigo-500 font-light font-sans text-center max-w-full">
               We are aiming to expand our prediction list to cover more
               diseases, and provide patients with a full accurate results. In
               addition, to enrich the global database with a new researchable

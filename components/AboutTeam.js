@@ -19,7 +19,7 @@ export default function AboutTeam() {
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/faisal-kushha-mpa-bb8129b1/">
                 <span aria-hidden="true" class="absolute inset-0"></span>
                 Faisal Kushha
               </a>
@@ -37,7 +37,7 @@ export default function AboutTeam() {
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
+              <a href="https://jehadabuawwad.netlify.app/">
                 <span aria-hidden="true" class="absolute inset-0"></span>
                 Jehad Abu Awwad
               </a>
@@ -54,7 +54,7 @@ export default function AboutTeam() {
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/musaabshalaldeh/">
                 <span aria-hidden="true" class="absolute inset-0"></span>
                 Musa'b Shalaldeh
               </a>
@@ -73,7 +73,7 @@ export default function AboutTeam() {
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/shahd-alkhateib1995/">
                 <span aria-hidden="true" class="absolute inset-0"></span>
                 Shahed Alkhatib
               </a>
