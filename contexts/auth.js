@@ -21,13 +21,14 @@ export function AuthProvider(props) {
     logout,
   });
 
-  async function login(username, password) {
-    const response = await axios.post(tokenUrl, { username, password });
+  async function login(username,email, password) {
+    const response = await axios.post(tokenUrl, { username,email, password });
     const decodedAccess = jwt.decode(response.data.access);
     const newState = {
       tokens: response.data,
       user: {
         username: decodedAccess.username,
+        email: decodedAccess.email,
         password: decodedAccess.password,
       },
     };
