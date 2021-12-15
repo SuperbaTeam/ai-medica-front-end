@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "../test-utils";
 import AboutTeam from "../../components/AboutTeam";
-describe("AboutUs", () => {
+describe("AboutUs team page should render names of team", () => {
   it("should render the heading", () => {
     const text1ToFind = "Faisal Kushha"
     const text2ToFind = "Jehad Abu Awwad"
