@@ -13,7 +13,10 @@ export default function LoginModal(props) {
     }
     finally {
       props.hide()
-      window.location.reload();
+
+      setTimeout(function (){
+        window.location.reload();
+    }, 1000);
     }
   }
 

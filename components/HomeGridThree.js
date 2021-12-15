@@ -1,10 +1,13 @@
-import { useAuth } from "../contexts/auth";
+import { useState } from "react";
+import WarningModal from "./sub_components/WarningModal"
+import Router from "next/router";
 import {
   AnnotationIcon,
   GlobeAltIcon,
   LightningBoltIcon,
   ScaleIcon,
 } from "@heroicons/react/outline";
+import { route } from "next/dist/server/router";
 
 const features = [
   {
@@ -34,8 +37,34 @@ const features = [
 ];
 
 export default function HomeGridThree() {
+  const [showWarning, setShowWarning] = useState(false);
+  
+  
+  const showWarningFunc = () => {
+    setShowWarning(true);
+  };
+  const hideWarningFunc = () => {
+    setShowWarning(false);
+  };
+
+  const handleGetStarted = () =>{
+    let user;
+    if (typeof window !== "undefined") {
+      user = JSON.parse(localStorage.getItem("Auth"))
+    }
+    if(user)
+    {
+      //go to discover page
+      Router.push("/discover")
+    }
+    else{
+      showWarningFunc()
+    }
+  }
+
   return (
     <>
+    {showWarning && <WarningModal hide={hideWarningFunc}/>}
       <div className="py-12 bg-white mt-15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
@@ -83,12 +112,10 @@ export default function HomeGridThree() {
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
               <a
-                onClick={() => {
-                  login("test", "test");
-                }}
+                onClick={handleGetStarted}
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
               >
-                Get started
+                Discover
               </a>
             </div>
           </div>
