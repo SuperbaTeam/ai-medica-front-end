@@ -18,9 +18,9 @@ export default function AboutTeam() {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" className="absolute inset-0"></span>
+            <h3 class="text-sm text-gray-700">
+              <a href="https://www.linkedin.com/in/faisal-kushha-mpa-bb8129b1/">
+                <span aria-hidden="true" class="absolute inset-0"></span>
                 Faisal Kushha
               </a>
             </h3>
@@ -36,9 +36,9 @@ export default function AboutTeam() {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" className="absolute inset-0"></span>
+            <h3 class="text-sm text-gray-700">
+              <a href="https://jehadabuawwad.netlify.app/">
+                <span aria-hidden="true" class="absolute inset-0"></span>
                 Jehad Abu Awwad
               </a>
             </h3>
@@ -53,9 +53,9 @@ export default function AboutTeam() {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" className="absolute inset-0"></span>
+            <h3 class="text-sm text-gray-700">
+              <a href="https://www.linkedin.com/in/musaabshalaldeh/">
+                <span aria-hidden="true" class="absolute inset-0"></span>
                 Musa'b Shalaldeh
               </a>
             </h3>
@@ -72,9 +72,9 @@ export default function AboutTeam() {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" className="absolute inset-0"></span>
+            <h3 class="text-sm text-gray-700">
+              <a href="https://www.linkedin.com/in/shahd-alkhateib1995/">
+                <span aria-hidden="true" class="absolute inset-0"></span>
                 Shahed Alkhatib
               </a>
             </h3>

@@ -6,14 +6,16 @@ import AboutTeam from "../components/AboutTeam";
 
 export default function AboutUs() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col justify-between h-screen">
       <Head>
         <title>About Us</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <AboutGrid/>
-      <AboutTeam/>
+      <div className="flex flex-col items-center justify-center py-2 m-auto w-4/5">
+        <AboutGrid/>
+        <AboutTeam/>
+      </div>
       <Footer />
     </div>
   );

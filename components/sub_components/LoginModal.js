@@ -8,11 +8,15 @@ export default function LoginModal(props) {
       props.login(username, email, password)
 
     }
-    catch {
-
+    catch{
+      console.log("error in logging in.")
     }
     finally {
       props.hide()
+
+      setTimeout(function (){
+        window.location.reload();
+    }, 1000);
     }
   }
 

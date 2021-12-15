@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200">
@@ -27,18 +28,15 @@ export default function Footer() {
             md:justify-start
           "
         >
-          Logo
+          Superba Team
         </a>
         <p className="mt-2 text-sm text-justify text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          at sequi cum, impedit fuga in placeat illo eum minima possimus est
-          perferendis distinctio explicabo eos natus consequuntur blanditiis
-          odio optio?
+          Visit our github organization where we have our projects set up and ready to share with everyone!
         </p>
         <div className="flex mt-4">
-          <button className="h-auto p-3 text-xs text-black bg-lime-300 rounded-sm">
-            Get Started
-          </button>
+          <a href="https://github.com/SuperbaTeam" className="h-auto p-3 text-xs text-black bg-lime-300 rounded-sm">
+            Visit Github
+          </a>
         </div>
         <div className="flex justify-center mt-4 lg:mt-2">
           <a href="https://github.com/SuperbaTeam">
@@ -64,16 +62,14 @@ export default function Footer() {
           </h2>
           <ul className="mb-8 space-y-2 text-sm list-none">
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Home</a>
+              <Link href="/">
+                <a className="text-gray-600 hover:text-gray-800">Home</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-gray-800">About Us</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Blogs</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Contact Us</a>
+              <Link href="/aboutus">
+                <a className="text-gray-600 hover:text-gray-800">About Us</a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -83,16 +79,14 @@ export default function Footer() {
           </h2>
           <ul className="mb-8 space-y-2 text-sm list-none">
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Home</a>
+              <Link href="/">
+                <a className="text-gray-600 hover:text-gray-800">Home</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-gray-800">About Us</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Blogs</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Contact Us</a>
+              <Link href="/aboutus">
+                <a className="text-gray-600 hover:text-gray-800">About Us</a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -102,16 +96,14 @@ export default function Footer() {
           </h2>
           <ul className="mb-8 space-y-2 text-sm list-none">
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Home</a>
+              <Link href="/">
+                <a className="text-gray-600 hover:text-gray-800">Home</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-gray-800">About Us</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Blogs</a>
-            </li>
-            <li>
-              <a className="text-gray-600 hover:text-gray-800">Contact Us</a>
+              <Link href="/aboutus">
+                <a className="text-gray-600 hover:text-gray-800">About Us</a>
+              </Link>
             </li>
           </ul>
         </div>

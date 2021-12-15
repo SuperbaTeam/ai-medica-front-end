@@ -13,7 +13,8 @@ const [selectedDisease, selectDisease] = useState(0);
 
 
   return (
-    <div className="flex flex-col min-h-screen justify-around">
+    // <div className="flex flex-col min-h-screen justify-around">
+    <div className="flex flex-col justify-between h-screen">
       <Head>
         <title>Discover</title>
         <link rel="icon" href="/favicon.ico" />
