@@ -7,7 +7,6 @@ import HelpForm from "../components/HelpForm";
 
 export default function HelpOthers() {
   return (
-    // <div className="flex flex-col items-center justify-center min-h-screen py-2">
     <div className="flex flex-col justify-between h-screen">
       <Head>
         <title>Help Others</title>
