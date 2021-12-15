@@ -1,13 +1,19 @@
 export default function LoginModal(props) {
-  const loginUser = (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const pass = event.target.password.value;
-    try {
-      props.login(username, pass);
-    } catch {
-    } finally {
-      props.hide();
+    const loginUser = (event) =>{
+        event.preventDefault();
+        const username = event.target.username.value;
+        const email = event.target.email.value;
+        const pass = event.target.password.value;
+        try{
+             props.login(username,email,pass)
+
+        }
+        catch{
+
+        }
+        finally{
+            props.hide()
+        }
     }
   };
 
@@ -43,6 +49,10 @@ export default function LoginModal(props) {
                   id="username"
                   name="username"
                 />
+              </div>
+              <div className="flex flex-col px-6 py-5 bg-gray-50">
+                <p className="mb-2 font-semibold text-gray-700">Email</p>
+                <input type="text"className="h-10 p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm" id="email" name="email"/>
               </div>
               <div className="flex flex-col px-6 py-5 bg-gray-50">
                 <p className="mb-2 font-semibold text-gray-700">Password</p>
