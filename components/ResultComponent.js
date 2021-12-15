@@ -1,46 +1,77 @@
 import TestResult from './sub_components/TestResult'
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function ResultComponent() {
-    let fakeData = [
-        {
-            name: "fake name1",
-            age: "fake age1_",
-            disease_name: "disease name 1",
-            status: "fake status1",
-        },
-        {
-            name: "fake name2",
-            age: "fake age2",
-            disease_name: "disease name 2",
-            status: "fake status2",
-        },
-        {
-            name: "fake name3",
-            age: "fake age3",
-            disease_name: "disease name 3",
-            status: "fake status3",
-        },
-        {
-            name: "fake name4",
-            age: "fake age4",
-            disease_name: "disease name 4",
-            status: "fake status4",
-        },
+    const stroke_api = process.env.NEXT_PUBLIC_API_URL_1;
+    const hepatitis_api = process.env.NEXT_PUBLIC_API_URL_2;
+    let userEmail = "";
+    if (typeof window !== "undefined") {
+        userEmail = JSON.parse(localStorage.getItem("Auth")).email;
+    }
+    let [resultsSection, setResultsSection] = useState(0)
+    let [strokeResultData, setStrokeResultData] = useState([])
+    let [hepatitisResultData, setHepatitisResultData] = useState([])
 
-    ]
-    return (
-    <div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20">
-      {fakeData.length > 0 ?<>
-        <h1 class="text-3xl text-center font-bold text-black-500">Your Test Results:</h1>
-        <div class="border-l-2 mt-10">
-        {fakeData.map(result=>{
-                return (
-                    <TestResult result={result} testNumber={fakeData.indexOf(result)+1}/>
-                )
-            })}
+    useEffect(() => {
+        axios
+        .get(stroke_api)
+        .then(result=>{
+            setStrokeResultData(result.data)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+
+        axios
+        .get(hepatitis_api)
+        .then(result=>{
+            setHepatitisResultData(result.data)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }, []);
+
+
+    if(resultsSection == 0)
+    {
+        return (
+        <div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20">
+          {strokeResultData.length > 0 ?<>
+            <h1 class="text-3xl text-center font-bold text-black-500">Your Test Results:</h1>
+            <div class="border-l-2 mt-10">
+            {strokeResultData.map(result=>{
+                    if(result.email == userEmail)
+                    {
+                        return (
+                            <TestResult result={result} testNumber={strokeResultData.indexOf(result)+1}/>
+                        )
+                    }
+                })}
+            </div>
+          </> : <h1 class="text-3xl text-center font-bold text-black-500">No Test Results To Be Viewed Yet.</h1>}
         </div>
-      </> : <h1 class="text-3xl text-center font-bold text-black-500">No Test Results To Be Viewed Yet.</h1>}
-    </div>
-    );
+        );
+    }
+    else if (resultsSection == 1)
+    {
+        return (
+            <div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20">
+              {hepatitisResultData.length > 0 ?<>
+                <h1 class="text-3xl text-center font-bold text-black-500">Your Test Results:</h1>
+                <div class="border-l-2 mt-10">
+                {hepatitisResultData.map(result=>{
+                        if(result.email == userEmail)
+                        {
+                            return (
+                                <TestResult result={result} testNumber={hepatitisResultData.indexOf(result)+1}/>
+                            )
+                        }
+                    })}
+                </div>
+              </> : <h1 class="text-3xl text-center font-bold text-black-500">No Test Results To Be Viewed Yet.</h1>}
+            </div>
+            );
+    }
 }

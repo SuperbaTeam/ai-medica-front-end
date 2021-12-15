@@ -1,4 +1,15 @@
 export default function TestModal(props) {
+  let diseaseName = "";
+  const checkDiseaseName = () =>{
+    if(typeof(props.result.bmi) !== "undefined")
+    {
+      diseaseName = "Stroke"
+    }
+    else if (typeof(props.result.bmi) !== "fatigue") {
+      diseaseName = "Hepatitis"
+    }
+  }
+  checkDiseaseName();
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -42,8 +53,7 @@ export default function TestModal(props) {
                   <div className="flex m-2">
                     <h1 className="text-black font-bold">Disease: </h1>
                     <h1 className="mx-4 text-black">
-                      {" "}
-                      {props.result.disease_name}
+                      {diseaseName}
                     </h1>
                   </div>
                   <div className="flex m-2">
