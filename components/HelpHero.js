@@ -19,7 +19,7 @@ export default function HelpHero() {
                 ducts (85%) or lobules (15%) in the glandular tissue of the
                 breast. Initially, the cancerous growth is confined to the duct
                 or lobule (“in situ”) where it generally causes no symptoms and
-                has minimal potential for spread (metastasis). There are
+                has minimal potential for spread (metastasis), There are
                 different kinds of breast cancer. The kind of breast cancer
                 depends on which cells in the breast turn into cancer.
               </p>
