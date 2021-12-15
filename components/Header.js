@@ -26,12 +26,19 @@ export default function Header() {
     setShowSignUp(false);
   };
 
+  if(showLogin)
+  {
+    return <>{showLogin && <LoginModal hide={hideLoginModal} login={login} />}</>
+  }
+  else if(showSignUp)
+  {
+    return <>{showSignUp && <SignUpModal hide={hideSignUpModal} signup={()=>{console.log("SIGNED UP USER")/*pass the actual signup function here*/}} />}</>
+  }
+  else{
   return (
     <>
-      {showLogin && <LoginModal hide={hideLoginModal} login={login} />}
-      {showSignUp && <SignUpModal hide={hideSignUpModal} />}
-      <header className="z-40">
-        <nav className="bg-gray-100 fixed inset-x-0">
+      <header className="">
+        <nav className="bg-gray-100 z-40 fixed inset-x-0">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex justify-between">
               <div className="flex space-x-4">
@@ -94,8 +101,8 @@ export default function Header() {
               <div className="hidden md:flex items-center space-x-1">
                 {user ? (
                   <button
-                    onClick={logout}
                     className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                    onClick={logout}
                   >
                     Logout
                   </button>
@@ -103,8 +110,8 @@ export default function Header() {
                   <>
                     <button onClick={showLoginModal}>Login</button>
                     <button
-                      onClick={showSignUpModal}
                       className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                      onClick={showSignUpModal}
                     >
                       Signup
                     </button>
@@ -139,4 +146,5 @@ export default function Header() {
       </header>
     </>
   );
+  }
 }
