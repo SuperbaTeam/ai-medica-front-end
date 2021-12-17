@@ -14,9 +14,9 @@ export default function LoginModal(props) {
     finally {
       props.hide()
 
-      setTimeout(function (){
+      await setTimeout(function (){
         window.location.reload();
-    }, 1000);
+    }, 4000);
     }
   }
 
