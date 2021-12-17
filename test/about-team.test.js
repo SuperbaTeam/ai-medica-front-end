@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "../test-utils";
-import AboutTeam from "../../components/AboutTeam";
+import { render, screen } from "./test-utils";
+import AboutTeam from "../components/AboutTeam";
 describe("AboutUs team page should render names of team", () => {
   it("should render the heading", () => {
     const text1ToFind = "Faisal Kushha"

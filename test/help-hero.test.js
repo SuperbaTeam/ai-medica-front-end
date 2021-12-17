@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "../test-utils";
-import HelpHero from "../../components/HelpHero";
+import { render, screen } from "./test-utils";
+import HelpHero from "../components/HelpHero";
 describe("Help Others render some text", () => {
   it("should render the heading", () => {
     const text1ToFind = "Breast Cancer Organization"

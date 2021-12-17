@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "../test-utils";
-import HomeGridOne from "../../components/HomeGridOne";
+import { render, screen } from "./test-utils";
+import HomeGridOne from "../components/HomeGridOne";
 describe("Home page should render the first grid", () => {
   it("should render the heading", () => {
     const text1ToFind = "Stroke"

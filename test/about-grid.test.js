@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen } from "../test-utils";
-import AboutGrid from "../../components/AboutGrid";
+import { render, screen } from "./test-utils";
+import AboutGrid from "../components/AboutGrid";
 describe("AboutUs Grid for mission and vision should be rendered", () => {
   it("should render the heading", () => {
     const text1ToFind = "Our Mission"

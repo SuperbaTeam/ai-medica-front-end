@@ -3,30 +3,13 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-200">
     <div
-      className="
-        container
-        flex flex-col flex-wrap
-        px-4
-        py-16
-        mx-auto
-        md:items-center
-        lg:items-start
-        md:flex-row md:flex-nowrap
-      "
+      className="container flex flex-col flex-wrap px-4 py-16 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap"
     >
       <div
         className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left"
       >
         <a
-          className="
-            flex
-            items-center
-            justify-center
-            text-4xl
-            font-bold
-            text-blue-700
-            md:justify-start
-          "
+          className="flex items-center justify-center text-4xl font-bold text-blue-700 md:justify-start"
         >
           Superba Team
         </a>
@@ -34,7 +17,7 @@ export default function Footer() {
           Visit our github organization where we have our projects set up and ready to share with everyone!
         </p>
         <div className="flex mt-4">
-          <a href="https://github.com/SuperbaTeam" className="h-auto p-3 text-xs text-black bg-lime-300 rounded-sm">
+          <a href="https://github.com/SuperbaTeam" className="h-auto p-3 text-xs text-black rounded-sm bg-lime-300">
             Visit Github
           </a>
         </div>
