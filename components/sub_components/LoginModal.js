@@ -1,5 +1,5 @@
 export default function LoginModal(props) {
-  const loginUser = (event) => {
+  const loginUser = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
     const email = event.target.email.value;
