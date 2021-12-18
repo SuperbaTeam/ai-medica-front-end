@@ -5,7 +5,7 @@ export default function LoginModal(props) {
     const email = event.target.email.value;
     const password = event.target.password.value;
     try {
-      props.login(username, email, password)
+      await props.login(username, email, password)
 
     }
     catch{
@@ -14,9 +14,9 @@ export default function LoginModal(props) {
     finally {
       props.hide()
 
-      setTimeout(function (){
+      await setTimeout(function (){
         window.location.reload();
-    }, 1000);
+    }, 500);
     }
   }
 
