@@ -6,7 +6,7 @@ import SignUpModal from "./sub_components/SignupModal";
 
 
 export default function Header() {
-  let { user, login, logout } = useAuth();
+  let { user, login, logout,signup } = useAuth();
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -32,31 +32,31 @@ export default function Header() {
   }
   else if(showSignUp)
   {
-    return <>{showSignUp && <SignUpModal hide={hideSignUpModal} signup={()=>{console.log("SIGNED UP USER")/*pass the actual signup function here*/}} />}</>
+    return <>{showSignUp && <SignUpModal hide={hideSignUpModal} showlogin={showLoginModal} signup={signup} />}</>
   }
   else{
   return (
     <>
       <header className="">
-        <nav className="bg-gray-100 z-40 fixed inset-x-0">
-          <div className="max-w-6xl mx-auto px-4">
+        <nav className="fixed inset-x-0 z-40 bg-gray-100">
+          <div className="max-w-6xl px-4 mx-auto">
             <div className="flex justify-between">
               <div className="flex space-x-4">
                 <div>
                   {" "}
                   <a
                     href="#"
-                    className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
+                    className="flex items-center px-2 py-5 text-gray-700 hover:text-gray-900"
                   >
                     {" "}
-                    <i className="bx bxl-medium-old mr-1 text-xl mb-1 text-blue-400"></i>{" "}
+                    <i className="mb-1 mr-1 text-xl text-blue-400 bx bxl-medium-old"></i>{" "}
                     <Link href="/"><a href="#" className="font-bold text-grey-300">AI Medica</a></Link>
                   </a>{" "}
                 </div>
-                <div className="hidden md:flex items-center space-x-1">
+                <div className="items-center hidden space-x-1 md:flex">
                   {" "}
                   <Link href="/">
-                    <a className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                    <a className="px-3 py-5 text-gray-700 hover:text-gray-900">
                       Home
                     </a>
                   </Link>
@@ -65,7 +65,7 @@ export default function Header() {
                       <Link href="/discover">
                         <a
                           href="#"
-                          className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                          className="px-3 py-5 text-gray-700 hover:text-gray-900"
                         >
                           Discover
                         </a>
@@ -73,7 +73,7 @@ export default function Header() {
                       <Link href="/result">
                         <a
                           href="#"
-                          className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                          className="px-3 py-5 text-gray-700 hover:text-gray-900"
                         >
                           Results
                         </a>
@@ -81,7 +81,7 @@ export default function Header() {
                       <Link href="/helpothers">
                         <a
                           href="#"
-                          className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                          className="px-3 py-5 text-gray-700 hover:text-gray-900"
                         >
                           Help Others
                         </a>
@@ -91,17 +91,17 @@ export default function Header() {
                   <Link href="/aboutus">
                     <a
                       href="#"
-                      className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                      className="px-3 py-5 text-gray-700 hover:text-gray-900"
                     >
                       About Us
                     </a>
                   </Link>
                 </div>
               </div>
-              <div className="hidden md:flex items-center space-x-1">
+              <div className="items-center hidden space-x-1 md:flex">
                 {user ? (
                   <button
-                    className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                    className="px-3 py-2 text-sm text-black transition duration-300 rounded bg-lime-400 hover:bg-lime-300 hover:text-yellow-800"
                     onClick={logout}
                   >
                     Logout
@@ -110,7 +110,7 @@ export default function Header() {
                   <>
                     <button onClick={showLoginModal}>Login</button>
                     <button
-                      className="py-2 px-3 bg-lime-400 text-black hover:bg-lime-300 text-sm hover:text-yellow-800 rounded transition duration-300"
+                      className="px-3 py-2 text-sm text-black transition duration-300 rounded bg-lime-400 hover:bg-lime-300 hover:text-yellow-800"
                       onClick={showSignUpModal}
                     >
                       Signup
@@ -118,27 +118,27 @@ export default function Header() {
                   </>
                 )}
               </div>
-              <div className="md:hidden flex items-center">
+              <div className="flex items-center md:hidden">
                 {" "}
                 <button className="mobile-menu-button focus:outline-none">
                   {" "}
-                  <i className="bx bx-menu text-3xl mt-1"></i>{" "}
+                  <i className="mt-1 text-3xl bx bx-menu"></i>{" "}
                 </button>{" "}
               </div>
             </div>
           </div>
-          <div className="mobile-menu hidden md:hidden">
+          <div className="hidden mobile-menu md:hidden">
             {" "}
-            <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
+            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-200">
               Home
             </a>{" "}
-            <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
+            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-200">
               Contact
             </a>{" "}
-            <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
+            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-200">
               Pricing
             </a>{" "}
-            <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
+            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-200">
               Features
             </a>{" "}
           </div>

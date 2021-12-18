@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import axios from "axios";
 
 const tokenUrl = process.env.NEXT_PUBLIC_API_URL_Token
+const registerUrl = process.env.NEXT_PUBLIC_API_URL_Register
 const AuthContext = createContext();
 
 export function useAuth() {
@@ -17,12 +18,13 @@ export function AuthProvider(props) {
   const [state, setState] = useState({
     tokens: null,
     user: null,
+    signup,
     login,
     logout,
   });
 
-  async function login(username,email, password) {
-    const response = await axios.post(tokenUrl, { username,email, password });
+  async function login(username, email, password) {
+    const response = await axios.post(tokenUrl, { username, email, password });
     const decodedAccess = jwt.decode(response.data.access);
     const newState = {
       tokens: response.data,
@@ -47,6 +49,11 @@ export function AuthProvider(props) {
     };
     setState((prevState) => ({ ...prevState, ...newState }));
     localStorage.clear()
+  }
+
+  async function signup(username, email, password) {
+    const regresponse= await axios.post(registerUrl, { username, email, password })
+    return regresponse.data
   }
 
   return (
