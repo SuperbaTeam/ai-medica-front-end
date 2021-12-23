@@ -17,7 +17,7 @@ export default function useResource() {
   );
   const { cancer_data, error3 } = useSWR([cancer_url, tokens], fetchResource);
 
-  async function fetchResource(url) {
+  async function fetchResource(customURL) {
     if (!tokens) {
       return;
     }
